@@ -21,5 +21,9 @@ public class StepDefinitions {
 		System.out.println("Esto es el then");
 	}
 	
+	@When("The params are not correct")
+	public void paramsIncorrect() {
+		
+	}
 
 }
