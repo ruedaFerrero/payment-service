@@ -9,12 +9,9 @@ import io.cucumber.spring.CucumberContextConfiguration;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(
-		features = "C:\\Users\\Usuario\\Documents\\LucaTIC\\Material\\Proyectos\\Proyecto3\\payment-service\\src\\test\\feature"
-		,glue = {"com.payment.payment"})
-@SpringBootTest(classes=annotation.class)
+@CucumberOptions(features="src/test/features")
 @CucumberContextConfiguration
-
+@SpringBootTest("StepsDefinitions")
 public class TestRunner {
-
+	
 }
