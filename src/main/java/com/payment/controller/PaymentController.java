@@ -1,5 +1,4 @@
 package com.payment.controller;
-
 import com.payment.utils.Utils;
 import com.payment.model.Account;
 import com.payment.response.Response;
@@ -25,11 +24,5 @@ public class PaymentController {
         }
         Response response = new Response();
         return ResponseEntity.ok(response);
-    }
-
-
-    @GetMapping("/version")
-    public String getVersion() {
-        return "1.0";
     }
 }

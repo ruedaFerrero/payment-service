@@ -9,14 +9,14 @@ public class AccountResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private String number;
-	private String ccv;
+	private String cvv;
 	private String titular;
 	
 	public static AccountResponse of(Account account) {
 		AccountResponse accountResponse = new AccountResponse();
 		
 		accountResponse.setNumber(account.getNumber());
-		accountResponse.setCcv(account.getCcv());
+		accountResponse.setCcv(account.getCvv());
 		accountResponse.setTitular(account.getTitular());
 		
 		return accountResponse;
@@ -30,12 +30,12 @@ public class AccountResponse implements Serializable {
 		this.number = number;
 	}
 
-	public String getCcv() {
-		return ccv;
+	public String getCvv() {
+		return cvv;
 	}
 
-	public void setCcv(String ccv) {
-		this.ccv = ccv;
+	public void setCcv(String cvv) {
+		this.cvv = cvv;
 	}
 
 	public String getTitular() {

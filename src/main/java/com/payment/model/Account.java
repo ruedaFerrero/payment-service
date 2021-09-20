@@ -15,7 +15,7 @@ public class Account {
 	private String number;
 	@Size(min=3, max=3)
 	@NotNull
-	private String ccv;
+	private String cvv;
 	@NotNull
 	private String titular;
 	
@@ -24,10 +24,10 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(String number, String ccv, String titular) {
+	public Account(String number, String cvv, String titular) {
 		super();
 		this.number = number;
-		this.ccv = ccv;
+		this.cvv = cvv;
 		this.titular = titular;
 	}
 
@@ -39,12 +39,12 @@ public class Account {
 		this.number = number;
 	}
 
-	public String getCcv() {
-		return ccv;
+	public String getCvv() {
+		return cvv;
 	}
 
-	public void setCcv(String ccv) {
-		this.ccv = ccv;
+	public void setCcv(String cvv) {
+		this.cvv = cvv;
 	}
 
 	public String getTitular() {
@@ -60,8 +60,8 @@ public class Account {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Account [number=");
 		builder.append(number);
-		builder.append(", ccv=");
-		builder.append(ccv);
+		builder.append(", cvv=");
+		builder.append(cvv);
 		builder.append(", titular=");
 		builder.append(titular);
 		builder.append("]");

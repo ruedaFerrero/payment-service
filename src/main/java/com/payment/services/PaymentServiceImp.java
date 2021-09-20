@@ -10,9 +10,9 @@ public class PaymentServiceImp implements PaymentService{
 	
 	@Override
 	public Response validateAccount(Account account) {
-
+		
 		Response response = new Response();
-
+		
 		if (account.getCvv().equals("007"))
 			response.setStatus("cvv not valid");
 		else if (account.getNumber().startsWith("4"))
@@ -21,10 +21,10 @@ public class PaymentServiceImp implements PaymentService{
 			response.setStatus("Titular not valid");
 		else
 			response.setStatus("Valid account");
-
+					
 		return response;
 	}
-
-
+	
+	
 
 }
