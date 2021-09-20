@@ -12,8 +12,8 @@ public class PaymentServiceImp implements PaymentService{
 	public Response validateAccount(Account account) {
 		
 		Response response = new Response();
-		
-		if (account.getCvv().equals("007"))
+				
+		if (account.getCvv().equals("007")) 
 			response.setStatus("cvv not valid");
 		else if (account.getNumber().startsWith("4"))
 			response.setStatus("Credit card number not valid");
