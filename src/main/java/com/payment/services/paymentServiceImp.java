@@ -1,5 +1,5 @@
 package com.payment.services;
 
-public class paymentServiceImp implements paymentService{
+public class paymentServiceImp implements PaymentService{
 
 }

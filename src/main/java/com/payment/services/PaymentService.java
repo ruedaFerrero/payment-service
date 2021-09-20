@@ -1,5 +1,5 @@
 package com.payment.services;
 
-public interface paymentService {
+public interface PaymentService {
 
 }
