@@ -4,6 +4,6 @@ import com.payment.model.Account;
 
 public interface PaymentService {
 	
-	public Reponse validate(Account account);
+	public Response validate(Account account);
 
 }
