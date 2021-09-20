@@ -17,7 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
@@ -35,10 +35,11 @@ public class ValidateAccountShould {
     @Test
     public void Return() {
         Account account = new Account("", "656", "holiii");
-        a.addError(new ObjectError("Soy un objeto dummy", "Fallo porque quiero"));
-        response = paymentController.validatePayment(account, a);
+        
+        BindingResult bindingResult = new BeanPropertyBindingResult(account, "objectName");
+        response = paymentController.validatePayment(account, bindingResult);
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-      //  assertEquals(response.getBody().getStatus(), "Bad request");
+        assertEquals(response.getBody().getStatus(), "Bad request");
     }
 }
 
