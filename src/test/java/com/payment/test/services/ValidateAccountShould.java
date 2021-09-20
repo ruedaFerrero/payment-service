@@ -2,18 +2,16 @@ package com.payment.test.services;
 
 import static org.junit.Assert.assertEquals;
 
-import com.payment.services.PaymentServiceImp;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.payment.model.Account;
 import com.payment.response.Response;
 import com.payment.services.PaymentService;
-import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -21,12 +19,37 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ValidateAccountShould {
 	Response response;
 	@Autowired
-	private PaymentService service;
+	private PaymentService paymentService;
 	
 	@Test
-	public void ReturnMensageWhenCvvEqualsTo007() {
-		Account account = new Account("4916585815127134", "007", "holiii");
-		response = service.validateAccount(account);
+	public void ReturnCorrectMessageWhenCvvEqualsTo007() {		
+		
+		Account account = new Account("3916585815127134", "007", "holiii");
+		response = paymentService.validateAccount(account);
 		assertEquals(response.getStatus(),"cvv not valid");
+	}
+
+	@Test
+	public void ReturnCorrectMessageWhenNumberStartWith0() {
+		
+		Account account = new Account("4916585815127134", "237", "holiii");
+		response = paymentService.validateAccount(account);
+		assertEquals(response.getStatus(),"Credit card number not valid");
+	}
+		
+	@Test
+	public void ReturnCorrectMessageWhenTitularNotValid() {
+		
+		Account account = new Account("3916585815127134", "237", "Eholiii");
+		response = paymentService.validateAccount(account);
+		assertEquals(response.getStatus(),"Titular not valid");
+	}
+	
+	@Test
+	public void ReturnCorrectMessageWhenAccountIsCorrect() {
+		
+		Account account = new Account("3916585815127134", "237", "holiii");
+		response = paymentService.validateAccount(account);
+		assertEquals(response.getStatus(),"Valid account");
 	}
 }
