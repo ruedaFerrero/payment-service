@@ -1,4 +1,4 @@
-package com.payment.response;
+package com.payment.model;
 
 import java.io.Serializable;
 

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.payment.model.Account;
-import com.payment.response.Response;
+import com.payment.model.Response;
 
 @AllArgsConstructor
 @Service
