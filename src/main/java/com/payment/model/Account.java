@@ -1,12 +1,22 @@
 package com.payment.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-@CreditCardNumber
+import lombok.Data;
+
+@Data
 public class Account {
 	
+	@CreditCardNumber
+	@NotNull
 	private String number;
+	@Size(min=3, max=3)
+	@NotNull
 	private String ccv;
+	@NotNull
 	private String titular;
 	
 	public Account() {
