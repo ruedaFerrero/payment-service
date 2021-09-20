@@ -1,5 +1,5 @@
 package com.payment.controller;
 
-public class paymentController {
+public class PaymentController {
 
 }
