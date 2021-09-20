@@ -17,7 +17,6 @@ import com.payment.services.PaymentService;
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 public class ValidateAccountShould {
-	
 	Response response;
 	@Autowired
 	private PaymentService paymentService;
@@ -26,45 +25,31 @@ public class ValidateAccountShould {
 	public void ReturnCorrectMessageWhenCvvEqualsTo007() {		
 		
 		Account account = new Account("3916585815127134", "007", "holiii");
-		
 		response = paymentService.validateAccount(account);
-		
 		assertEquals(response.getStatus(),"cvv not valid");
 	}
-	
-	
+
 	@Test
 	public void ReturnCorrectMessageWhenNumberStartWith0() {
 		
 		Account account = new Account("4916585815127134", "237", "holiii");
-
 		response = paymentService.validateAccount(account);
-		
 		assertEquals(response.getStatus(),"Credit card number not valid");
-
 	}
 		
 	@Test
 	public void ReturnCorrectMessageWhenTitularNotValid() {
 		
 		Account account = new Account("3916585815127134", "237", "Eholiii");
-
 		response = paymentService.validateAccount(account);
-		
 		assertEquals(response.getStatus(),"Titular not valid");
-
 	}
 	
 	@Test
 	public void ReturnCorrectMessageWhenAccountIsCorrect() {
 		
 		Account account = new Account("3916585815127134", "237", "holiii");
-
 		response = paymentService.validateAccount(account);
-		
 		assertEquals(response.getStatus(),"Valid account");
-
 	}
-	
-	
 }

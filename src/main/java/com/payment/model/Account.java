@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class Account {
 	
-	@CreditCardNumber
+	@CreditCardNumber(ignoreNonDigitCharacters = true)
 	@NotNull
 	private String number;
 	@Size(min=3, max=3)
