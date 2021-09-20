@@ -10,7 +10,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.payment.model.Account;
-import com.payment.response.Response;
+import com.payment.model.Response;
 import com.payment.services.PaymentService;
 
 @SpringBootTest
