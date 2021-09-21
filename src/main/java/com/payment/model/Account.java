@@ -5,9 +5,13 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
 	
 	@CreditCardNumber(ignoreNonDigitCharacters = true)
@@ -20,54 +24,10 @@ public class Account {
 	@NotNull
 	private String creditCardOwner;
 	
-	public Account() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 
-	public Account(String creditCard, String cvv, String creditCardOwner) {
-		super();
-		this.creditCard = creditCard;
-		this.cvv = cvv;
-		this.creditCardOwner = creditCardOwner;
-	}
-
-	public String getCreditCard() {
-		return creditCard;
-	}
-
-	public void setCreditCard(String creditCard) {
-		this.creditCard = creditCard;
-	}
-
-	public String getCvv() {
-		return cvv;
-	}
-
-	public void setCcv(String cvv) {
-		this.cvv = cvv;
-	}
-
-	public String getCreditCardOwner() {
-		return creditCardOwner;
-	}
-
-	public void setCreditCardOwner(String creditCardOwner) {
-		this.creditCardOwner = creditCardOwner;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Account [creditCard=");
-		builder.append(creditCard);
-		builder.append(", cvv=");
-		builder.append(cvv);
-		builder.append(", creditCardOwnerr=");
-		builder.append(creditCardOwner);
-		builder.append("]");
-		return builder.toString();
-	}
+	
 	
 	
 	
