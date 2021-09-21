@@ -16,6 +16,7 @@
 	<description>payment-service</description>
 	<properties>
 		<java.version>16</java.version>
+		<spring.fox.version>2.9.2</spring.fox.version>
 	</properties>
 
 	<dependencies>
@@ -79,6 +80,17 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
+        	<!-- Spring Fox 2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${spring.fox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${spring.fox.version}</version>
+		</dependency>
     </dependencies>
 
 	<build>
