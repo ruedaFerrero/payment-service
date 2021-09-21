@@ -21,8 +21,15 @@ public class PaymentController {
     @GetMapping("/")
     public ResponseEntity<Response> validatePayment(@Valid @RequestBody Account account, BindingResult result){
         log.info("Validating Account: {}", account);
+        Boolean cvvIsValid;
+        try{
+            Integer.parseInt(account.getCvv());
+            cvvIsValid = true;
+        } catch(NumberFormatException e){
+            cvvIsValid = false;
+        }
         Response response = new Response();
-        if(result.hasErrors()){
+        if(result.hasErrors() || !cvvIsValid){
             response.setStatus("Bad request");
         }
         else {
