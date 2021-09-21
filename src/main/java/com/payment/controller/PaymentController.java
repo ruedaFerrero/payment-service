@@ -20,17 +20,24 @@ public class PaymentController {
 
     @GetMapping("/")
     public ResponseEntity<Response> validatePayment(@Valid @RequestBody Account account, BindingResult result){
-        log.info("Validating Account: {}", account);
-        Boolean cvvIsValid;
-        try{
-            Integer.parseInt(account.getCvv());
-            cvvIsValid = true;
-        } catch(NumberFormatException e){
-            cvvIsValid = false;
-        }
-        Response response = new Response();
-        if(result.hasErrors() || !cvvIsValid){
-            response.setStatus("Bad request");
+    	log.info("Validating Account: {}", account);
+    	Boolean cvvIsValid;
+    	try{
+    	    Integer.parseInt(account.getCvv());
+    	    cvvIsValid = true;
+    	} catch(NumberFormatException e){
+    	    cvvIsValid = false;
+    	}
+    	Response response = new Response();
+    	if(result.hasErrors() || !cvvIsValid){
+    		if (account.getCreditCard().isEmpty())
+    			response.setStatus("Credit card must be not null");
+    		else if (!cvvIsValid)
+    			response.setStatus("The cvv must have a valid format");
+    		else if (account.getCreditCardOwner().isEmpty())
+    			response.setStatus("Credit card owner must be not null");            
+    		else 
+    			response.setStatus("Credit card must have a valid format");
         }
         else {
             response = service.validateAccount(account);

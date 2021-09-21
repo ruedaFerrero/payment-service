@@ -13,12 +13,12 @@ class PaymentServiceImp implements PaymentService{
 	public Response validateAccount(Account account) {
 
 		Response response = new Response();
-		if (account.getCvv().equals("007")) 
-			response.setStatus("cvv not valid");
-		else if (account.getNumber().startsWith("4"))
-			response.setStatus("Credit card number not valid");
-		else if (account.getTitular().startsWith("E"))
-			response.setStatus("Titular not valid");
+		if (account.getCreditCard().startsWith("4"))
+			response.setStatus("The credit card number cannot start with 4");
+		else if (account.getCvv().equals("007")) 
+			response.setStatus("The cvv cannot be 007");
+		else if (account.getCreditCardOwner().startsWith("E"))
+			response.setStatus("Titular name cannot start with E");
 		else
 			response.setStatus("Valid account");
 
