@@ -12,31 +12,32 @@ public class Account {
 	
 	@CreditCardNumber(ignoreNonDigitCharacters = true)
 	@NotNull
-	private String number;
+	private String creditCard;
 	@Size(min=3, max=3)
 	@NotNull
 	private String cvv;
+	@Size(min=1)
 	@NotNull
-	private String titular;
+	private String creditCardOwner;
 	
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(String number, String cvv, String titular) {
+	public Account(String creditCard, String cvv, String creditCardOwner) {
 		super();
-		this.number = number;
+		this.creditCard = creditCard;
 		this.cvv = cvv;
-		this.titular = titular;
+		this.creditCardOwner = creditCardOwner;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getCreditCard() {
+		return creditCard;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
 	}
 
 	public String getCvv() {
@@ -47,23 +48,23 @@ public class Account {
 		this.cvv = cvv;
 	}
 
-	public String getTitular() {
-		return titular;
+	public String getCreditCardOwner() {
+		return creditCardOwner;
 	}
 
-	public void setTitular(String titular) {
-		this.titular = titular;
+	public void setCreditCardOwner(String creditCardOwner) {
+		this.creditCardOwner = creditCardOwner;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Account [number=");
-		builder.append(number);
+		builder.append("Account [creditCard=");
+		builder.append(creditCard);
 		builder.append(", cvv=");
 		builder.append(cvv);
-		builder.append(", titular=");
-		builder.append(titular);
+		builder.append(", creditCardOwnerr=");
+		builder.append(creditCardOwner);
 		builder.append("]");
 		return builder.toString();
 	}

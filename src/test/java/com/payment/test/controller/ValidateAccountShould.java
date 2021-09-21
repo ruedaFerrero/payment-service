@@ -7,24 +7,18 @@ import org.junit.runner.RunWith;
 import com.payment.controller.PaymentController;
 import com.payment.model.Account;
 import com.payment.model.Response;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 
-<<<<<<< HEAD
-=======
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
->>>>>>> d2ba5eae585bd972388c110d9f071113ddef550c
+
 @SpringBootTest
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
@@ -45,7 +39,6 @@ public class ValidateAccountShould {
     }
 
     @Test
-
     public void ReturnValidAccountWhenValidationHasNoErrors() {
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
